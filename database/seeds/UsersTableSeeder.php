@@ -12,7 +12,7 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         //
-        App:User::create([
+        App\User::create([
 
         	'name' => 'admin',
 
@@ -20,7 +20,9 @@ class UsersTableSeeder extends Seeder
 
         	'email' => 'admin@forum.com',
 
-        	'admin' => 1
+        	'admin' => 1,
+
+        	'avatar' => asset('avatars/avatar.png')
 
         ]);
     }
