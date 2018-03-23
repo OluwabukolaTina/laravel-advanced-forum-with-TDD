@@ -27,6 +27,20 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function is_admin ()
+    {
+
+        if($this->admin) 
+        {
+
+            return true;
+        
+        }
+
+        return false;
+
+    }
+
     public function discussions()
     {
 

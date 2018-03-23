@@ -31,6 +31,14 @@ Route::get('github/redirect', [
 
 ]);
 
+Route::post('login/custom', [
+		
+		'uses' =>'LoginController@login',
+
+		'as' => 'login.custom'
+
+]);
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
