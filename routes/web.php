@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 Route::get('github/auth', [
-		
+
 		'uses' =>'SocialController@auth',
 
 		'as' => 'social.auth'
@@ -24,7 +24,7 @@ Route::get('github/auth', [
 ]);
 
 Route::get('github/redirect', [
-		
+
 		'uses' =>'SocialController@callback',
 
 		'as' => 'social.callback'
@@ -32,13 +32,27 @@ Route::get('github/redirect', [
 ]);
 
 Route::post('login/custom', [
-		
+
 		'uses' =>'LoginController@login',
 
 		'as' => 'login.custom'
 
 ]);
 
+// Route::group(['middleware' => 'auth'], function(){
+
+Route::resource('channels', 'ChannelsController');
+
+// });
+
+// Route::group(['middleware' => 'auth'], function(){
+//
+// 	Route::resource('channels', 'ChannelsController');
+//
+// });
+
 Auth::routes();
+
+
 
 Route::get('/home', 'HomeController@index')->name('home');
