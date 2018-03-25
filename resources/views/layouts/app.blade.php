@@ -71,7 +71,36 @@
             </div>
         </nav>
 
-        @yield('content')
+        <div class="container">
+            <div class="col-md-4">
+                <div class="panel panel-default">
+                    
+                    <div class="panel-heading">
+                        Channels
+                    </div>
+
+                    <div class="panel-body">
+                        <ul class="list-group">
+                            @foreach($channels as $channel)
+
+                            <li class="list-group-item">
+                              
+                              <a href=""> {{ $channel->title }}</a>  
+                            </li>
+                        </ul>
+
+                        @endforeach
+                    </div>
+
+
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                
+                @yield('content')
+            </div>
+        </div>
     </div>
 
     <!-- Scripts -->
