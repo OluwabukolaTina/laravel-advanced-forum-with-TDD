@@ -74,7 +74,9 @@
         <div class="container">
             <div class="col-md-4">
 
-                <a href="{{ route('discussions.create') }}" class="form-control btn btn-primary">Care a new discusiion</a>
+                @if(Auth::check())
+
+                <a href="{{ route('discussions.create') }}" class="form-control btn btn-primary">Create a new discusiion</a>
 
                 <br/>
                 <hr>
@@ -104,6 +106,8 @@
 
                 </div>
             </div>
+
+            @endif
 
             <div class="col-md-8">
                 

@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Discussion;
 
+use Auth;
+
+use Session;
+
 use Illuminate\Http\Request;
 
 class DiscussionsController extends Controller
@@ -46,7 +50,39 @@ class DiscussionsController extends Controller
     public function store(Request $request)
     {
         //
-        dd($request->all());
+        // dd($request->all());
+        $r = request();
+
+        $this->validate($r, [
+
+            'channel_id' => 'required',
+
+            'title' => 'required',
+
+            'content' => 'required'
+        
+        ]);
+
+        $discussion = Discussion::create([
+
+            'channel_id' => $r->channel_id,
+
+            'title' => $r->title,
+
+            'content' => $r->content,
+
+            'user_id' => Auth::id(),
+
+            'slug' => str_slug($r->title)
+
+        ]);
+
+        Session::flash('success', 'sucessfully created');
+
+        //redirect the discussion jusrt created
+
+        return redirect()->route('discussion', ['slug' => $discussion->slug]);
+    
     }
 
     /**
@@ -55,9 +91,10 @@ class DiscussionsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
         //
+        return view('discussions.show')->with('discussion', Discussion::where('slug', $slug)->first());
     }
 
     /**

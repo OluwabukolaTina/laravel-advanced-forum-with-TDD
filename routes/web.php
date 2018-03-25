@@ -48,6 +48,14 @@ Route::post('/discussion/store', [
 
 ]);
 
+Route::get('discussion/{slug}', [
+
+	'uses' => 'DiscussionsController@show',
+
+	'as' => 'discussion'
+
+]);
+
 // });
 
 // Route::group(['middleware' => 'auth'], function(){
