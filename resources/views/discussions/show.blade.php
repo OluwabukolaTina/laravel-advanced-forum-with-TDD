@@ -50,13 +50,13 @@
             
             <img src="{{ $r->user->avatar }}" alt="" width="40px" height="40px">&nbsp;&nbsp;&nbsp;
 
-            <span> {{ $r->user->name }}, <b>{{ $d->created_at->diffForHumans() }} </b></span>
+            <span> {{ $r->user->name }}, <b>{{ $r->created_at->diffForHumans() }} </b></span>
 
         </div>
 
         <div class="panel-body">
 
-            <p class="text-center">
+            <p>
                 
                 {{ $r->content }}
             
@@ -77,6 +77,29 @@
     </div>
 
     @endforeach
+
+    <div class="panel panel-default">
+    	
+    	<div class="panel-body">
+    		
+    		<form action="{{ route('discussion.reply', ['id' => $d->id]) }}" method="post">
+    			
+    			{{ csrf_field() }}
+
+    		<div class="form-group">
+
+    			<label for="reply">Leave a reply</label>
+    			
+    			<textarea name="reply" id="reply" cols="10" rows="8" class="form-control" placeholder="what do you have to say..."></textarea>
+    		
+    		</div>
+
+    		<div class="form-group">
+    			<button type="submit" class="btn pull-right">Submit</button>
+    		</div>
+    		</form>
+    	</div>
+    </div>
 
 
 @endsection

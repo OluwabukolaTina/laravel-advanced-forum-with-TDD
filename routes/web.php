@@ -56,6 +56,8 @@ Route::get('discussion/{slug}', [
 
 ]);
 
+Route::post('discussion/reply/{id}', 'RepliesController@reply')->name('discussion.reply');
+
 // });
 
 // Route::group(['middleware' => 'auth'], function(){
