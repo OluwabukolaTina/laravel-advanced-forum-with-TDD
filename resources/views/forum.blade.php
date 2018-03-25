@@ -8,14 +8,38 @@
         
         <div class="panel-heading">
             
-            <img src="{{ $d->user->avatar }}" alt="" width="70px" height="70px">
+            <img src="{{ $d->user->avatar }}" alt="" width="40px" height="40px">&nbsp;&nbsp;&nbsp;
+
+            <span> {{ $d->user->name }}</span>
+
+            <a href="{{ route('discussion', ['slug' => $d->slug ]) }}" class="btn btn-default pull-right"> View </a>
+
         </div>
 
         <div class="panel-body">
+
+            <h4 class="text-center">
             
-            {{ $d->content}}
+                {{ $d->title }}
+
+            </h3>
+
+            <p class="text-center">
+                
+                {{ str_limit($d->content, 39)}}
+            
+            </p>
 
         </div>
+
+        <div class="panel-footer">
+            
+            <p>
+                
+                {{ $d->replies->count() }} Replies
+            </p>
+        </div>
+
     </div>
 
 @endforeach
@@ -25,4 +49,5 @@
         {{ $discussions->links() }}
  
     </div>
+
 @endsection
