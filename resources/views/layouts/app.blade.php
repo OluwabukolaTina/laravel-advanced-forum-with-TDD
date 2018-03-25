@@ -86,7 +86,9 @@
                             <li class="list-group-item">
                               
                               <a href=""> {{ $channel->title }}</a>  
+                           
                             </li>
+                        
                         </ul>
 
                         @endforeach
