@@ -10,7 +10,7 @@
             
             <img src="{{ $d->user->avatar }}" alt="" width="40px" height="40px">&nbsp;&nbsp;&nbsp;
 
-            <span> {{ $d->user->name }}</span>
+            <span> {{ $d->user->name }}, <b>{{ $d->created_at->diffForHumans() }} </b></span>
 
             <a href="{{ route('discussion', ['slug' => $d->slug ]) }}" class="btn btn-default pull-right"> View </a>
 
@@ -20,7 +20,7 @@
 
             <h4 class="text-center">
             
-                {{ $d->title }}
+                <b>{{ $d->title }}</b>
 
             </h3>
 
