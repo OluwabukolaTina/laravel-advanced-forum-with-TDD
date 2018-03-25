@@ -73,10 +73,17 @@
 
         <div class="container">
             <div class="col-md-4">
+
+                <a href="{{ route('discussions.create') }}" class="form-control btn btn-primary">Care a new discusiion</a>
+
+                <br/>
+                <hr>
+
                 <div class="panel panel-default">
                     
                     <div class="panel-heading">
                         Channels
+                        
                     </div>
 
                     <div class="panel-body">

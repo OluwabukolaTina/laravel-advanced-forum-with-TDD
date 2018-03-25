@@ -4,12 +4,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/discuss', function () {
-    
-    return view('discuss');
-
-});
-
 Route::get('github/auth', [
 
 		'uses' =>'SocialController@auth',
@@ -37,6 +31,22 @@ Route::post('login/custom', [
 // Route::group(['middleware' => 'auth'], function(){
 
 Route::resource('channels', 'ChannelsController');
+
+Route::get('/discussion/create', [
+
+	'uses' => 'DiscussionsController@create',
+
+	'as' => 'discussions.create'
+
+]);
+
+Route::post('/discussion/store', [
+
+	'uses' => 'DiscussionsController@store',
+
+	'as' => 'discussions.store'
+
+]);
 
 // });
 
