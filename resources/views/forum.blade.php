@@ -34,10 +34,16 @@
 
         <div class="panel-footer">
             
-            <p>
+            <span>
                 
                 {{ $d->replies->count() }} Replies
-            </p>
+            
+            </span>
+
+            <!-- add tne categories each belong ot here -->
+
+            
+
         </div>
 
     </div>

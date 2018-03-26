@@ -12,7 +12,7 @@ class Discussion extends Model
     public function channel()
     {
 
-        return $this->belongsTo('App\Channel');
+        return $this->belongsTo(Channel::class);
 
     }
 
