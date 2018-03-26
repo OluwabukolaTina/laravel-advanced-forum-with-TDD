@@ -85,6 +85,8 @@
     <div class="panel panel-default">
     	
     	<div class="panel-body">
+
+            @if(Auth::check())
     		
     		<form action="{{ route('discussion.reply', ['id' => $d->id]) }}" method="post">
     			
@@ -102,6 +104,18 @@
     			<button type="submit" class="btn pull-right">Submit</button>
     		</div>
     		</form>
+
+            @else
+
+            <div class="text-center">
+                
+                <a href="{{ route('login') }}" style="text-decoration: none;"><h1>Sign In to Leave A Reply</h1></a>
+            
+            </div>
+
+
+
+            @endif
     	</div>
     </div>
 
