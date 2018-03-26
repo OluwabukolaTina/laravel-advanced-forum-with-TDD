@@ -61,6 +61,8 @@ class ChannelsController extends Controller
 
             'title' => $request->channel
 
+            'slug' => str_slug($request->channel)
+
         ]);
 
         Session::flash('success', 'channel created');
@@ -106,6 +108,8 @@ class ChannelsController extends Controller
         $channel = Channel::find($id);
 
         $channel->title = $request->channel;
+
+        $channel->slug = slug($request->channel);
 
         $channel->save();
 

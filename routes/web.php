@@ -1,7 +1,9 @@
 <?php
 
 Route::get('/', function () {
+   
     return view('welcome');
+
 });
 
 Route::get('github/auth', [
@@ -71,6 +73,6 @@ Route::get('reply/unlike/{id}', 'LikesController@unlike')->name('reply.unlike');
 
 Auth::routes();
 
-
-
 Route::get('/forum', 'ForumsController@index')->name('forum');
+
+Route::get('/channel/{slug}', 'ForumsController@channel')->name('channel');

@@ -14,43 +14,119 @@ class ChannelsTableSeeder extends Seeder
     public function run()
     {
         //
-        $channel1 = ['title' => 'Laravel'];
+        // $channel1 = ['title' => 'Laravel'];
 
-        $channel2 = ['title' => 'VueJs'];
+        // $channel2 = ['title' => 'VueJs'];
 
-        $channel3 = ['title' => 'AdonisJs'];
+        // $channel3 = ['title' => 'AdonisJs'];
 
-        $channel4 = ['title' => 'Django'];
+        // $channel4 = ['title' => 'Django'];
 
-        $channel5 = ['title' => 'AngularJs'];
+        // $channel5 = ['title' => 'AngularJs'];
 
-        $channel6 = ['title' => 'ExpressJs'];
+        // $channel6 = ['title' => 'ExpressJs'];
 
-        $channel7 = ['title' => 'Javascript'];
+        // $channel7 = ['title' => 'Javascript'];
 
-        $channel8 = ['title' => 'HapiJs'];
+        // $channel8 = ['title' => 'HapiJs'];
 
-        Channel::create($channel1);
+        $t1 =  'Laravel';
 
-        Channel::create($channel2);
+        $t2 = 'VueJs';
 
-        Channel::create($channel3);
+        $t3 = 'AdonisJs';
 
-        Channel::create($channel4);
+        $t4 = 'Django';
 
-        Channel::create($channel5);
+        $t5 = 'AngularJs';
 
-        Channel::create($channel5);
+        $t6 = 'ExpressJs';
 
-        Channel::create($channel6);
+        $t7 = 'Javascript';
 
-        Channel::create($channel7);
+        $t8 = 'HapiJs';
 
-        Channel::create($channel8);
+        $c1 = [
 
+            'title' => $t1,
 
+            'slug' => str_slug($t1)
 
+        ];
 
+        $c2 = [
+
+            'title' => $t2,
+
+            'slug' => str_slug($t2)
+
+        ];
+
+        $c3 = [
+
+            'title' => $t3,
+
+            'slug' => str_slug($t3)
+
+        ];
+
+        $c4 = [
+
+            'title' => $t4,
+
+            'slug' => str_slug($t4)
+
+        ];
+
+        $c5 = [
+
+            'title' => $t5,
+
+            'slug' => str_slug($t5)
+
+        ];
+
+        $c6 = [
+
+            'title' => $t6,
+
+            'slug' => str_slug($t6)
+
+        ];
+
+        $c7 = [
+
+            'title' => $t7,
+
+            'slug' => str_slug($t7)
+
+        ];
+
+        $c8 = [
+
+            'title' => $t8,
+
+            'slug' => str_slug($t8)
+
+        ];
+
+        Channel::create($c1);
+
+        Channel::create($c2);
+
+        Channel::create($c3);
+
+        Channel::create($c4);
+
+        Channel::create($c5);
+
+        Channel::create($c5);
+
+        Channel::create($c6);
+
+        Channel::create($c7);
+
+        Channel::create($c8);
         
     }
 }

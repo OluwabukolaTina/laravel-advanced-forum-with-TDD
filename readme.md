@@ -14,3 +14,4 @@
 
 -and others
 
+php artisan make:migration add_new_column_to_xtable_table --table="xtable"

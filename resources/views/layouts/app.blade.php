@@ -94,7 +94,7 @@
 
                             <li class="list-group-item">
                               
-                              <a href=""> {{ $channel->title }}</a>  
+                              <a href="{{ route('channel', ['slug' => $channel->slug ]) }}" style="text-decoration: none;"> {{ $channel->title }}</a>  
                            
                             </li>
                         
