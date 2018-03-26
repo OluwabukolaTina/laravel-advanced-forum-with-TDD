@@ -66,11 +66,15 @@
 
         <div class="panel-footer">
             
-            <p>
-                
-                Like
-            
-            </p>
+            @if($r->isLikedByAuthUser())
+
+            <a href="" class="btn btn-danger btn-xs">Unlike</a>
+
+            @else
+
+            <a href="" class="btn btn-success btn-xs">Like</a>
+
+            @endif
         
         </div>
 
