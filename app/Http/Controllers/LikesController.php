@@ -2,28 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Discussion;
+use Illuminate\Http\Request;
+
+use App\Like;
 
 use Auth;
 
 use Session;
 
-use Illuminate\Http\Request;
-
-class DiscussionsController extends Controller
+class LikesController extends Controller
 {
-
-    public function __construct()
-    {
-
-    	$this->middleware('auth')->except(['show']);
-    
-    }
-
     /**
      * Display a listing of the resource.
      *
- * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\Response
      */
     public function index()
     {
@@ -38,7 +30,6 @@ class DiscussionsController extends Controller
     public function create()
     {
         //
-        return view('discuss');
     }
 
     /**
@@ -50,38 +41,35 @@ class DiscussionsController extends Controller
     public function store(Request $request)
     {
         //
-        // dd($request->all());
-        $r = request();
+    }
 
-        $this->validate($r, [
+    public function like($id)
+    {
 
-            'channel_id' => 'required',
+        Like::create([
 
-            'title' => 'required',
+            'reply_id' => $id,
 
-            'content' => 'required'
-        
-        ]);
-
-        $discussion = Discussion::create([
-
-            'channel_id' => $r->channel_id,
-
-            'title' => $r->title,
-
-            'content' => $r->content,
-
-            'user_id' => Auth::id(),
-
-            'slug' => str_slug($r->title)
+            'user_id' => Auth::id()
 
         ]);
 
-        Session::flash('success', 'sucessfully created');
+        Session::flash('success', 'you liked this reply!');
 
-        //redirect the discussion jusrt created
+        return redirect()->back();
 
-        return redirect()->route('discussion', ['slug' => $discussion->slug]);
+    }
+
+    public function unlike($id)
+    {
+
+        $like = Like::where('reply_id', $id)->where('user_id', Auth::id())->first();
+
+        $like->delete();
+
+        Session::flash('success', 'you have unliked this reply');
+
+        return redirect()->back();
     
     }
 
@@ -91,11 +79,9 @@ class DiscussionsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($slug)
+    public function show($id)
     {
         //
-        return view('discussions.show')->with('d', Discussion::where('slug', $slug)->first());
-    
     }
 
     /**
