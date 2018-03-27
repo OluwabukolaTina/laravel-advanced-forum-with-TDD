@@ -10,7 +10,15 @@
 
             <span> {{ $d->user->name }}, <b>{{ $d->created_at->diffForHumans() }} </b></span>
 
-           <!--  <a href="{{ route('discussion', ['slug' => $d->slug ]) }}" class="btn btn-default pull-right"> View </a> -->
+            @if($d->isBeingWatchedByAuthUser())
+
+                        <a href="{{ route('discussion.unwatch', ['id' => $d->id ]) }}" class="btn btn-default btn-xs pull-right"> UnWatch </a>
+
+            @else
+
+                        <a href="{{ route('discussion.watch', ['id' => $d->id ]) }}" class="btn btn-default btn-xs pull-right"> Watch </a>
+
+            @endif
 
         </div>
 

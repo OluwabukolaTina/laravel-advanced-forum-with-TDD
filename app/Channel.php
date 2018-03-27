@@ -14,7 +14,7 @@ class Channel extends Model
     public function discussions()
     {
 
-        return $this->hasMany('App\Discussion');
+        return $this->hasMany(Discussion::class);
 
     }
 

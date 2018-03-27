@@ -8,6 +8,8 @@ use Auth;
 
 use App\User;
 
+use Socialite;
+
 class LoginController extends Controller
 {
     //
@@ -42,6 +44,64 @@ class LoginController extends Controller
     	//if mot successful
     	return redirect()->back();
 
+    }
+
+     /**
+     * Redirect the user to the GitHub authentication page.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function redirectToProvider()
+    {
+        return Socialite::driver('github')->redirect();
+    }
+
+    /**
+     * Obtain the user information from GitHub.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function handleProviderCallback()
+    {
+        // $userSocial = Socialite::driver('github')->user();
+
+        // //check i fuser exists and login
+        // $user = User::where('email', $userSocial->user['email'])->first();
+
+        // if($user)
+        // {
+
+        //     if(Auth::loginUsingId($user->id)) 
+        //         {
+
+        //             return redirect()->route('home');
+
+        //         }
+        // }
+
+        // //else sign user in
+        // $userSignUp = User::create([
+
+        //     'name' => $userSocial->user['name'],
+
+        //     'email' => $userSocial->user['email'],
+
+        //     'avatar' => $userSocial->avatar
+        // ]);
+
+        // //log the user in
+        // if($userSignUp) 
+        // {
+
+        //     if(Auth::loginUsingId($userSignUp->id))
+        //         {
+
+        //             return redirect()->route('home');
+        //         }
+        // }
+        $user = Socialite::driver('github')->stateless()->user();
+
+         $user->name;
     }
 
 

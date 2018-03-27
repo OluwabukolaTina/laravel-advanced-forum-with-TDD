@@ -19,6 +19,7 @@ class ForumsController extends Controller
     {
         //
          $discussions = Discussion::orderBy('created_at', 'desc')->paginate(3);
+       
         return view('forum', ['discussions' => $discussions]);
    
     }

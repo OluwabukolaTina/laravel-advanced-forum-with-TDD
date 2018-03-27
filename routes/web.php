@@ -6,21 +6,21 @@ Route::get('/', function () {
 
 });
 
-Route::get('github/auth', [
+// Route::get('github/auth', [
 
-		'uses' =>'SocialController@auth',
+// 		'uses' =>'SocialController@auth',
 
-		'as' => 'social.auth'
+// 		'as' => 'social.auth'
 
-]);
+// ]);
 
-Route::get('github/redirect', [
+// Route::get('github/redirect', [
 
-		'uses' =>'SocialController@callback',
+// 		'uses' =>'SocialController@callback',
 
-		'as' => 'social.callback'
+// 		'as' => 'social.callback'
 
-]);
+// ]);
 
 Route::post('login/custom', [
 
@@ -30,39 +30,29 @@ Route::post('login/custom', [
 
 ]);
 
+Route::get('github/auth', 'LoginController@redirectToProvider');
+
+Route::get('github/redirect', 'LoginController@handleProviderCallback');
+
 // Route::group(['middleware' => 'auth'], function(){
 
 Route::resource('channels', 'ChannelsController');
 
-Route::get('/discussion/create', [
+Route::get('/discussion/create', 'DiscussionsController@create')->name('discussions.create');
 
-	'uses' => 'DiscussionsController@create',
+Route::post('/discussion/store', 'DiscussionsController@store')->name('discussions.store');
 
-	'as' => 'discussions.create'
-
-]);
-
-Route::post('/discussion/store', [
-
-	'uses' => 'DiscussionsController@store',
-
-	'as' => 'discussions.store'
-
-]);
-
-Route::get('discussion/{slug}', [
-
-	'uses' => 'DiscussionsController@show',
-
-	'as' => 'discussion'
-
-]);
+Route::get('discussion/{slug}', 'DiscussionsController@show')->name('discussion');
 
 Route::post('discussion/reply/{id}', 'RepliesController@reply')->name('discussion.reply');
 
 Route::get('reply/like/{id}', 'LikesController@like')->name('reply.like');
 
 Route::get('reply/unlike/{id}', 'LikesController@unlike')->name('reply.unlike');
+
+Route::get('/discussion/watch/{id}', 'WatchersController@watch')->name('discussion.watch');
+
+Route::get('/discussion/unwatch/{id}', 'WatchersController@unwatch')->name('discussion.unwatch');
 // });
 
 // Route::group(['middleware' => 'auth'], function(){
