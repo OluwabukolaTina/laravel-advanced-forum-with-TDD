@@ -51,9 +51,9 @@ class LoginController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function redirectToProvider()
+    public function redirectToProvider($provider)
     {
-        return Socialite::driver('github')->redirect();
+        return Socialite::driver($provider)->redirect();
     }
 
     /**
@@ -61,47 +61,47 @@ class LoginController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function handleProviderCallback()
+    public function handleProviderCallback($provider)
     {
-        // $userSocial = Socialite::driver('github')->user();
+        $userSocial = Socialite::driver($provider)->stateless()->user();
 
-        // //check i fuser exists and login
-        // $user = User::where('email', $userSocial->user['email'])->first();
+        //check i fuser exists and login
+        $user = User::where('email', $userSocial->user['email'])->first();
 
-        // if($user)
-        // {
+        if($user)
+        {
 
-        //     if(Auth::loginUsingId($user->id)) 
-        //         {
+            if(Auth::loginUsingId($user->id)) 
+                {
 
-        //             return redirect()->route('home');
+                    return redirect()->route('forum');
 
-        //         }
-        // }
+                }
+        }
 
-        // //else sign user in
-        // $userSignUp = User::create([
+        //else sign user in
+        $userSignUp = User::create([
 
-        //     'name' => $userSocial->user['name'],
+            'name' => $userSocial->user['name'],
 
-        //     'email' => $userSocial->user['email'],
+            'email' => $userSocial->user['email'],
 
-        //     'avatar' => $userSocial->avatar
-        // ]);
+            'avatar' => $userSocial->avatar
+        ]);
 
-        // //log the user in
-        // if($userSignUp) 
-        // {
+        //log the user in
+        if($userSignUp) 
+        {
 
-        //     if(Auth::loginUsingId($userSignUp->id))
-        //         {
+            if(Auth::loginUsingId($userSignUp->id))
+                {
 
-        //             return redirect()->route('home');
-        //         }
-        // }
-        $user = Socialite::driver('github')->stateless()->user();
+                    return redirect()->route('forum');
+                }
+        }
+        // $user = Socialite::driver($provider)->stateless()->user();
 
-         $user->name;
+        //  $user->name;
     }
 
 

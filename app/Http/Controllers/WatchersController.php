@@ -4,6 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Watcher;
+
+use Auth;
+
+use Session;
+
 class WatchersController extends Controller
 {
 

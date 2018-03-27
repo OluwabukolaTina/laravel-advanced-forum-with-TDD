@@ -57,9 +57,6 @@
             </span>
 
             <!-- add tne categories each belong ot here -->
-
-            <a href="{{ route('channel', ['slug' => $d->channel->title ]) }}" class="pull-right btn btn-default">{{ $d->channel->title }} </a>
-
         </div>
 
     </div>

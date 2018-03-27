@@ -30,9 +30,9 @@ Route::post('login/custom', [
 
 ]);
 
-Route::get('github/auth', 'LoginController@redirectToProvider');
+Route::get('{provider}/auth', 'LoginController@redirectToProvider');
 
-Route::get('github/redirect', 'LoginController@handleProviderCallback');
+Route::get('{provider}/redirect', 'LoginController@handleProviderCallback');
 
 // Route::group(['middleware' => 'auth'], function(){
 
