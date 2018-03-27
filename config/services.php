@@ -43,8 +43,8 @@ return [
     ],
 
     'facebook' => [
-    'client_id' => env('177701146191281'),         // Your GitHub Client ID
-    'client_secret' => env('1fea5f970d5c43aaf7cb20b89c187257'), // Your GitHub Client Secret
+    'client_id' => '177701146191281',         // Your GitHub Client ID
+    'client_secret' => '1fea5f970d5c43aaf7cb20b89c187257', // Your GitHub Client Secret
     'redirect' => 'http://127.0.0.1:8000/facebook/redirect',
 
     ],
