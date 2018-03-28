@@ -110,9 +110,10 @@ class DiscussionsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($slug)
     {
         //
+        return view('discussions.edit', ['discussion' => Discussion::where('slug', $slug)->first() ]);
     }
 
     /**
@@ -125,6 +126,22 @@ class DiscussionsController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $this->validate(request(), [
+
+            'content' => 'required'
+
+        ]);
+
+        $d = Discussion::find($id);
+
+        $d->content = request()->content;
+
+        $d->save();
+
+        Session::flash('success', 'You have edited this discussion');
+
+        return redirect()->route('discussion', ['slug'  => $d->slug ]);
+
     }
 
     /**

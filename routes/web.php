@@ -26,6 +26,10 @@ Route::get('/discussion/create', 'DiscussionsController@create')->name('discussi
 
 Route::post('/discussion/store', 'DiscussionsController@store')->name('discussions.store');
 
+Route::get('/discussion/edit/{slug}', 'DiscussionsController@edit')->name('discussion.edit');
+
+Route::post('/discussion/update/{id}', 'DiscussionsController@update')->name('discussion.update');
+
 Route::get('discussion/{slug}', 'DiscussionsController@show')->name('discussion');
 
 Route::post('discussion/reply/{id}', 'RepliesController@reply')->name('discussion.reply');
