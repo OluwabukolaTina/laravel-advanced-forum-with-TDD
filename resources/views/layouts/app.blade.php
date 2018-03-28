@@ -12,6 +12,8 @@
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
 
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+
     <!-- Scripts -->
     <script>
         window.Laravel = <?php echo json_encode([
@@ -108,5 +110,21 @@
     </div>
     <!-- Scripts -->
     <script src="/js/app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <script>
+        
+        @if(Session::has('success'))
+
+            toastr.success('{{Session::get('success') }}')
+
+        @endif
+
+        @if(Session::has('info'))
+
+            toastr.info('{{Session::get('info') }}')
+
+        @endif
+        
+    </script>
 </body>
 </html>
