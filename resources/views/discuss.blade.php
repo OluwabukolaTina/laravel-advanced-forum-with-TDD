@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+
+@include('includes.errors')
+
             <div class="panel panel-default">
                 <div class="panel-heading text-center">Create a new discussion</div>
 
@@ -27,7 +30,7 @@
                     <div class="form-group">
                         <label for="title">Title</label>
 
-                        <input type="text" name="title" class="form-control">
+                        <input type="text" name="title" class="form-control" value="{{ old('title') }}">
 
                     </div>
 
@@ -35,7 +38,7 @@
                         
                         <label for="content">What doyou have in mind?</label>
 
-                        <textarea name="content" id="content" cols="10" rows="7" class="form-control"></textarea>
+                        <textarea name="content" id="content" cols="10" rows="7" class="form-control"> {{ old('content') }}</textarea>
                     </div>
 
                     <div class="form-group">

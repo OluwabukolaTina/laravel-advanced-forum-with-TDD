@@ -147,7 +147,7 @@
 
     			<label for="reply">Leave a reply</label>
     			
-    			<textarea name="reply" id="reply" cols="10" rows="8" class="form-control" placeholder="what do you have to say..."></textarea>
+    			<textarea name="reply" id="reply" cols="10" rows="8" class="form-control" placeholder="what do you have to say..."> {{ old('reply') }}</textarea>
     		
     		</div>
 
