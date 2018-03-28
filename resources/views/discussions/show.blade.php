@@ -42,14 +42,14 @@
             
             @if($bestAnswer)
 
-            <div class="text-center">
+            <div class="text-center" style="padding: 40px">
+
+                <h2 class="text-center">Best Answer</h2> 
 
                 <div class="panel panel-success">
                     
                     <div class="panel-heading">
                         
-
-<h2 class="text-center">Best Answer</h2> <br>
                                     <img src="{{ $bestAnswer->user->avatar }}" alt="" width="40px" height="40px">&nbsp;&nbsp;&nbsp;
 
             <span> {{ $bestAnswer->user->name }}</span>
