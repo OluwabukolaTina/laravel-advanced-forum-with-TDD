@@ -10,7 +10,11 @@
             
             <img src="{{ $d->user->avatar }}" alt="" width="40px" height="40px">&nbsp;&nbsp;&nbsp;
 
+<!--                         <a href="{{ route('channel', ['slug' => $d->channel->title ]) }}" class="pull-right btn btn-default">{{ $d->channel->title }} </a> -->
+
             <span> {{ $d->user->name }}, <b>{{ $d->created_at->diffForHumans() }} </b></span>
+
+            <a href="{{ route('discussion', ['slug' => $d->slug ]) }}" class="btn btn-default pull-right btn-xs" style="margin-left: 9px;"> View </a>
 
             @if($d->hasBestAnswer())
 
@@ -20,8 +24,6 @@
 
                                             <span class="btn btn pull-right btn-danger btn-xs">OPEN</span>
             @endif
-
-            <a href="{{ route('discussion', ['slug' => $d->slug ]) }}" class="btn btn-default pull-right btn-xs"> View </a>
 
         </div>
 
@@ -51,7 +53,7 @@
 
             <!-- add tne categories each belong ot here -->
 
-            
+                                    <a href="{{ route('channel', ['slug' => $d->channel->title ]) }}" class="pull-right btn btn-default">{{ $d->channel->title }} </a>
 
         </div>
 

@@ -10,6 +10,15 @@
 
             <span> {{ $d->user->name }}, (<b>{{ $d->user->points }}</b> points), <b>{{ $d->created_at->diffForHumans() }} </b></span>
 
+            @if($d->hasBestAnswer())
+
+                            <span class="btn btn pull-right btn-success btn-xs">CLOSED</span>
+
+            @else
+
+                                            <span class="btn btn pull-right btn-danger btn-xs">OPEN</span>
+            @endif
+
             @if($d->isBeingWatchedByAuthUser())
 
                         <a href="{{ route('discussion.unwatch', ['id' => $d->id ]) }}" class="btn btn-default btn-xs pull-right"> UnWatch </a>
@@ -78,7 +87,6 @@
             
             </span>
 
-            <!-- add tne categories each belong ot here -->
         </div>
 
     </div>
