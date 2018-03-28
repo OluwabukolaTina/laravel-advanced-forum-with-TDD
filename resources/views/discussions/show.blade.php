@@ -70,14 +70,6 @@
 
         </div>
 
-        <!-- <div class="panel-footer">
-            
-            <p>
-                
-                {{ $d->replies->count() }} Replies
-            </p>
-        </div> -->
-
         <div class="panel-footer">
             
             <span>
@@ -102,8 +94,12 @@
             <span> {{ $r->user->name }}, <b> {{ $r->user->points }} points </b> created <b>{{ $r->created_at->diffForHumans() }} </b></span>
 
             @if(!$bestAnswer)
-          
-            <a href="{{ route('reply.best', ['id' => $r->id]) }}" class="btn btn-xs btn-info pull-right">Markas Best Answer</a>
+
+                @if(Auth::id() == $d->user->id)
+
+                    <a href="{{ route('reply.best', ['id' => $r->id]) }}" class="btn btn-xs btn-info pull-right">Markas Best Answer</a>
+
+                @endif
 
             @endif
 
