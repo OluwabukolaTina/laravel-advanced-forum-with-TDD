@@ -1,5 +1,3 @@
--social authentication with socialite
-
 -discussions and replies
 
 -likes and dislikes

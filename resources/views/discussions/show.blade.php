@@ -38,6 +38,36 @@
             
             </p>
 
+            <hr>
+            
+            @if($bestAnswer)
+
+            <div class="text-center">
+
+                <div class="panel panel-success">
+                    
+                    <div class="panel-heading">
+                        
+
+<h2 class="text-center">Best Answer</h2> <br>
+                                    <img src="{{ $bestAnswer->user->avatar }}" alt="" width="40px" height="40px">&nbsp;&nbsp;&nbsp;
+
+            <span> {{ $bestAnswer->user->name }}</span>
+
+                    </div>
+
+                <div class="panel-body">
+                    
+                    {{ $bestAnswer->content }}
+
+                </div>
+
+                </div>
+
+            </div>
+
+            @endif
+
         </div>
 
         <!-- <div class="panel-footer">
@@ -70,6 +100,12 @@
             <img src="{{ $r->user->avatar }}" alt="" width="40px" height="40px">&nbsp;&nbsp;&nbsp;
 
             <span> {{ $r->user->name }}, <b>{{ $r->created_at->diffForHumans() }} </b></span>
+
+            @if(!$bestAnswer)
+          
+            <a href="{{ route('reply.best', ['id' => $r->id]) }}" class="btn btn-xs btn-info pull-right">Markas Best Answer</a>
+
+            @endif
 
         </div>
 

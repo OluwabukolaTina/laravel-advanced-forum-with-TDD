@@ -82,6 +82,20 @@ class RepliesController extends Controller
         return redirect()->back();
     }
 
+    public function bestAnswer($id)
+    {
+
+        $reply = Reply::find($id);
+
+        $reply->best_answer = 1;
+
+        $reply->save();
+
+        Session::flash('success', 'You markeed this answer as the best');
+
+        return redirect()->back();
+    }
+
     /**
      * Display the specified resource.
      *

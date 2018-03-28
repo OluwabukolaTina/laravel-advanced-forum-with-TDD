@@ -6,22 +6,6 @@ Route::get('/', function () {
 
 });
 
-// Route::get('github/auth', [
-
-// 		'uses' =>'SocialController@auth',
-
-// 		'as' => 'social.auth'
-
-// ]);
-
-// Route::get('github/redirect', [
-
-// 		'uses' =>'SocialController@callback',
-
-// 		'as' => 'social.callback'
-
-// ]);
-
 Route::post('login/custom', [
 
 		'uses' =>'LoginController@login',
@@ -53,6 +37,8 @@ Route::get('reply/unlike/{id}', 'LikesController@unlike')->name('reply.unlike');
 Route::get('/discussion/watch/{id}', 'WatchersController@watch')->name('discussion.watch');
 
 Route::get('/discussion/unwatch/{id}', 'WatchersController@unwatch')->name('discussion.unwatch');
+
+Route::get('/discussion/best/reply/{id}', 'RepliesController@bestAnswer')->name('reply.best');
 
 
 Auth::routes();
