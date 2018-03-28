@@ -21,11 +21,11 @@
 
             @if($d->isBeingWatchedByAuthUser())
 
-                        <a href="{{ route('discussion.unwatch', ['id' => $d->id ]) }}" class="btn btn-default btn-xs pull-right"> UnWatch </a>
+                        <a href="{{ route('discussion.unwatch', ['id' => $d->id ]) }}" class="btn btn-default btn-xs pull-right" style="margin-right: 8px;"> UnWatch </a>
 
             @else
 
-                        <a href="{{ route('discussion.watch', ['id' => $d->id ]) }}" class="btn btn-default btn-xs pull-right"> Watch </a>
+                        <a href="{{ route('discussion.watch', ['id' => $d->id ]) }}" class="btn btn-default btn-xs pull-right" style="margin-right: 8px;"> Watch </a>
 
             @endif
 

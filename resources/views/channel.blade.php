@@ -12,7 +12,16 @@
 
             <span> {{ $d->user->name }}, <b>{{ $d->created_at->diffForHumans() }} </b></span>
 
-            <a href="{{ route('discussion', ['slug' => $d->slug ]) }}" class="btn btn-default pull-right"> View </a>
+                        <a href="{{ route('discussion', ['slug' => $d->slug ]) }}" class="btn btn-default pull-right btn-xs" style="margin-left: 9px;"> View </a>
+
+            @if($d->hasBestAnswer())
+
+                            <span class="btn btn pull-right btn-success btn-xs">CLOSED</span>
+
+            @else
+
+                                            <span class="btn btn pull-right btn-danger btn-xs">OPEN</span>
+            @endif
 
         </div>
 
@@ -47,9 +56,9 @@
                 {{ $d->replies->count() }} Replies
             
             </span>
-
+<!-- 
             <a href="{{ route('channel', ['slug' => $d->channel->title ]) }}" class="pull-right btn btn-default">{{ $d->channel->title }} </a>
-
+ -->
         </div>
 
     </div>
