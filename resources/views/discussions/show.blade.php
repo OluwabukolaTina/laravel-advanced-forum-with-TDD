@@ -8,7 +8,7 @@
             
             <img src="{{ $d->user->avatar }}" alt="" width="40px" height="40px">&nbsp;&nbsp;&nbsp;
 
-            <span> {{ $d->user->name }}, <b>{{ $d->created_at->diffForHumans() }} </b></span>
+            <span> {{ $d->user->name }}, (<b>{{ $d->user->points }}</b> points), <b>{{ $d->created_at->diffForHumans() }} </b></span>
 
             @if($d->isBeingWatchedByAuthUser())
 
@@ -52,7 +52,7 @@
                         
                                     <img src="{{ $bestAnswer->user->avatar }}" alt="" width="40px" height="40px">&nbsp;&nbsp;&nbsp;
 
-            <span> {{ $bestAnswer->user->name }}</span>
+            <span> {{ $bestAnswer->user->name }} (<b>{{ $bestAnswer->user->points }}</b> points)</span>
 
                     </div>
 
@@ -99,7 +99,7 @@
             
             <img src="{{ $r->user->avatar }}" alt="" width="40px" height="40px">&nbsp;&nbsp;&nbsp;
 
-            <span> {{ $r->user->name }}, <b>{{ $r->created_at->diffForHumans() }} </b></span>
+            <span> {{ $r->user->name }}, <b> {{ $r->user->points }} points </b> created <b>{{ $r->created_at->diffForHumans() }} </b></span>
 
             @if(!$bestAnswer)
           

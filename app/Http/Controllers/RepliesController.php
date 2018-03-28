@@ -64,6 +64,10 @@ class RepliesController extends Controller
 
         ]);
 
+        $reply->user->points += 10;
+
+        $reply->user->save();
+
         $watchers = array();
 
         //get them here, watchers property being acccessed
@@ -90,6 +94,11 @@ class RepliesController extends Controller
         $reply->best_answer = 1;
 
         $reply->save();
+
+        //increase a best answer
+        $reply->user->points += 20;
+
+        $reply->user->save();
 
         Session::flash('success', 'You markeed this answer as the best');
 
