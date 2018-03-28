@@ -4,9 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Notification;
+
 use App\Discussion;
 
 use App\Reply;
+
+use App\User;
 
 use Auth;
 
@@ -59,6 +63,19 @@ class RepliesController extends Controller
             'content' => request()->reply
 
         ]);
+
+        $watchers = array();
+
+        //get them here, watchers property being acccessed
+        foreach($d->watchers as $watcher):
+
+            //id pf the persons that liked, like is an instance of the like.php
+            array_push($watchers, User::find($watcher->user_id));
+
+        endforeach;
+
+        //pass the discussion
+        Notification::send($watchers, new \App\Notifications\NewReplyAdded($d));
 
         Session::flash('success', 'you have replied to this topic');
 
