@@ -125,6 +125,8 @@ class RepliesController extends Controller
     public function edit($id)
     {
         //
+        return view('replies.edit', ['reply' => Reply::find($id) ]);
+    
     }
 
     /**
@@ -137,7 +139,24 @@ class RepliesController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $this->validate(request(), [
+
+                'content' => 'required'
+
+            ]);
+
+        $reply = Reply::find($id);
+
+        $reply->content = request()->content;
+
+        $reply->save();
+
+        Session::flash('success', 'your reply has been edited');
+
+        return redirect()->route('discussion', ['slug' => $reply->discussion->slug ]);
+
     }
+
 
     /**
      * Remove the specified resource from storage.

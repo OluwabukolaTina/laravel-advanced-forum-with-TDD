@@ -75,8 +75,19 @@
         </nav>
         <div class="container">
             <div class="col-md-4">
+<!-- 
+                @if(Auth::check())
 
                  <a href="{{ route('discussions.create') }}" class="form-control btn btn-primary">Create a new discussion</a>
+
+                @else
+
+                    <a href="{{ route('login') }}" style="text-decoration: none;"><h3 class="text-center">Sign In to Ask A question</h3></a>
+
+                @endif
+
+ -->
+                <a href="{{ route('discussions.create') }}" class="form-control btn btn-primary">Create a new discussion</a>
 
                 <br>
                 <div class="panel panel-default">
