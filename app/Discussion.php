@@ -75,5 +75,32 @@ class Discussion extends Model
     
     }
 
+    public function hasBestAnswer()
+    {
+
+        $result = false;
+
+        //fetching this from the r/ship
+        foreach($this->replies as $reply)
+        {
+
+            //if there is areply with best answer
+
+            if($reply->best_answer)
+
+            {
+
+
+                $result = true;
+
+                break;
+            
+            }
+        
+        }
+
+        return $result;
+    }
+
 
 }
