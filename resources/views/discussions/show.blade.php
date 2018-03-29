@@ -76,7 +76,7 @@
 
                 <div class="panel-body">
                     
-                    {{ $bestAnswer->content }}
+                    {!! Markdown::convertToHtml($bestAnswer->content) !!}
 
                 </div>
 
@@ -136,7 +136,7 @@
 
             <p>
                 
-                {{ $r->content }}
+                {!! Markdown::convertToHtml($r->content) !!}
             
             </p>
 
