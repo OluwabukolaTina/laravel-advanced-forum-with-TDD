@@ -34,8 +34,8 @@
                         <span class="icon-bar"></span>
                     </button>
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                    <a class="navbar-brand" href="{{ url('/forum') }}">
+                        {{ config('app.name', 'Tina Forum') }}
                     </a>
                 </div>
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -90,10 +90,15 @@
                 <a href="{{ route('discussions.create') }}" class="form-control btn btn-primary">Create a new discussion</a>
 
                 <br>
+            
                 <div class="panel panel-default">
+            
                     <div class="panel-body">
+            
                         <ul class="list-group">
+            
                             <li class="list-group-item">
+            
                                 <a href="/forum" style="text-decoration: none;">Home</a>
 
                             </li>
@@ -118,7 +123,29 @@
 
                         </ul>
                     </div>
+
+                    @if(Auth::check())
+
+                        @if(Auth::user()->admin)
+
+                        <div class="panel-body">
+            
+                        <ul class="list-group">
+            
+                            <li class="list-group-item">
+            
+                                <a href="/channels" style="text-decoration: none;">ALL CHANNELS</a>
+
+                            </li>
+
+                        </ul>
+                    </div>
+
+                    @endif
+
+                    @endif
                 </div>
+
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         Channels

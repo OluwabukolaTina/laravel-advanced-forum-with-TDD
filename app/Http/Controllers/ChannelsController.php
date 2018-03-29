@@ -18,7 +18,7 @@ class ChannelsController extends Controller
      public function __construct()
      {
 
-       return $this->middleware('auth');
+       return $this->middleware('admin');
 
      }
 
@@ -59,7 +59,7 @@ class ChannelsController extends Controller
 
         Channel::create([
 
-            'title' => $request->channel
+            'title' => $request->channel,
 
             'slug' => str_slug($request->channel)
 
