@@ -56,7 +56,7 @@ return array(
                 'mysql' => array(
                         'driver'    => 'mysql',
                         'host'      => 'localhost',
-                        'database'  => 'advanced-forum',
+                        'database'  => 'forum',
                         'username'  => 'root',
                         'password'  => '',
                         'charset'   => 'utf8',
