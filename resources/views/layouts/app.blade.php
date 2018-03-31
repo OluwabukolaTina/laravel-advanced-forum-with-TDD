@@ -13,7 +13,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
-<body>
+<body style="padding-bottom: 100px;">
     <div id="app">
         <nav class="navbar navbar-default navbar-static-top">
             <div class="container">
@@ -37,6 +37,11 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         &nbsp;
+                    </ul>
+
+                    <ul class="nav navbar-nav">
+                        
+                        <li><a href="/threads">All threads<</a></li>
                     </ul>
 
                     <!-- Right Side Of Navbar -->

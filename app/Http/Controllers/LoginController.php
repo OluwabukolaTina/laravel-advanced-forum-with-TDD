@@ -33,11 +33,11 @@ class LoginController extends Controller
     		if($user->is_admin())
     		{
 
-    			return redirect()->route('dashboard');
+    			return redirect()->route('threads');
     		
     		}
 
-    			return redirect()->route('forum');
+    			return redirect()->route('threads');
 
     	}
 

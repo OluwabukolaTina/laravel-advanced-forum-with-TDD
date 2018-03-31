@@ -46,9 +46,24 @@
 		
 				<h2>Hello</h2>
 
+				<form method="post" action="{{ $thread->path() . '/replies' }}">
+
+					{{ csrf_field() }}
+					
+					<!-- <label for="body"> Body</label> -->
+					<textarea name="body" class="form-control" id="body" placeholder="what do you wanna say?..." rows="5"></textarea>
+
+    			<button type="submit" class="btn btn-default">Submit</button>
+    			
+				</form>
+
 			</div>
 		
 		</div>
+
+		@else
+
+			<p class="text-center"> Please <a href=" {{ route('login') }}"> sign in</a> to perform in this discussion</p>
 
 		@endauth
 

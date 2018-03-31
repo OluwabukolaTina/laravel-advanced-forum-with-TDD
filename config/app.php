@@ -13,7 +13,8 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Tina Forum'),
+    // 'name' => env('APP_NAME', 'Tina Forum'),
+    'name' => 'Tina Forum',
 
     /*
     |--------------------------------------------------------------------------
