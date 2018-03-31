@@ -35,7 +35,7 @@ class ReadThreadsTest extends TestCase
     {
         // $thread = factory('App\Thread')->create();
 
-         $this->get('/threads/' . $this->thread->id)
+         $this->get($this->thread->path())
                 ->assertSee($this->thread->title);
     
     }
@@ -48,7 +48,8 @@ class ReadThreadsTest extends TestCase
                 ->create(['thread_id' => $this->thread->id]);
 
         //we should see the thread wehn we vidit that
-        $this->get('/threads/' . $this->thread->id)
+        // $this->get('/threads/' . $this->thread->id)
+                $this->get($this->thread->path())
             ->assertSee($reply->body);
     }
 

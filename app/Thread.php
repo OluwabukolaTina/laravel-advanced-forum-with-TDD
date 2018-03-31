@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Thread extends Model
 {
     //
+    protected $guarded = [];
+
     public function path()
     {
 
@@ -18,5 +20,18 @@ class Thread extends Model
     {
 
     	return $this->hasMany(Reply::class);
+    }
+
+    public function creator()
+    {
+
+    	return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function addReply($reply)
+    {
+    	//delegate to replies r/ship up there and create a new one
+    	$this->replies()->create($reply);
+    
     }
 }

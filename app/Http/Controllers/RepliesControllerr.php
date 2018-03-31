@@ -4,20 +4,28 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use Notification;
+// use Notification;
 
-use App\Discussion;
+// use App\Discussion;
 
-use App\Reply;
+use App\Thread;
+// use App\Reply;
 
-use App\User;
+// use App\User;
 
-use Auth;
+// use Auth;
 
-use Session;
+// use Session;
 
 class RepliesController extends Controller
 {
+
+    public function __construct()
+    {
+
+        $this->middleware('auth');
+
+    }
     /**
      * Display a listing of the resource.
      *
@@ -44,9 +52,17 @@ class RepliesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Thread $thread)
     {
         //
+        $thread->addReply([
+
+            'body' => request('body'),
+
+            'user_id' => auth()->id()
+        ]);
+
+        return back();
     }
 
     public function reply($id)
