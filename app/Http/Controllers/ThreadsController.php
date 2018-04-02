@@ -32,7 +32,7 @@ class ThreadsController extends Controller
 
     }
 
-    public function show(Thread $thread)
+    public function show($channelId, Thread $thread)
     {
 
     	return view('threads.show', compact('thread'));
@@ -46,6 +46,8 @@ class ThreadsController extends Controller
             'user_id' => auth()->id(),
 
             'title' => request('title'),
+
+            'channel_id' => request('channel_id'),
 
             'body' => request('body')
 
