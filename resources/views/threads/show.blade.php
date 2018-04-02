@@ -36,6 +36,7 @@
 				@endforeach
 
 			</div>
+
 		</div>
 
 		@auth
@@ -44,16 +45,20 @@
 			
 			<div class="col-md-8 col-md-offset-2">
 		
-				<h2>Hello</h2>
-
 				<form method="post" action="{{ $thread->path() . '/replies' }}">
 
 					{{ csrf_field() }}
 					
 					<!-- <label for="body"> Body</label> -->
-					<textarea name="body" class="form-control" id="body" placeholder="what do you wanna say?..." rows="5"></textarea>
+					<textarea name="body" class="form-control" id="body" placeholder=" Hey,  {{ Auth::user()->name }} , got something to say??" rows="5"></textarea>
 
-    			<button type="submit" class="btn btn-default">Submit</button>
+					<br>
+
+    			<div class="form-group">
+    				
+    				<button type="submit" class="btn btn-default">Submit</button>
+
+    			</div>
     			
 				</form>
 

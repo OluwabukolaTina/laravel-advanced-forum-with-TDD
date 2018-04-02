@@ -26,6 +26,7 @@
                 <a href="{{ route('discussion.edit', ['slug' => $d->slug ]) }}" class="btn btn-default btn-xs pull-right btn-info" style="margin-right: 8px;"> Edit </a>
                 
                 @endif
+
             @endif
 
             @if($d->isBeingWatchedByAuthUser())
