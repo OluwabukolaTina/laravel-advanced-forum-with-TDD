@@ -7,7 +7,7 @@ use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 // use Illuminate\Foundation\Testing\DatabaseMigrations;
 
-class ParticipateInForumTest extends TestCase
+class ParticipateInThreadsTest extends TestCase
 {
 
     /**
@@ -50,6 +50,23 @@ class ParticipateInForumTest extends TestCase
     	$this->get($thread->path())
     		->assertSee($reply->body);
 
+
+    }
+
+    function test_a_reply_requires_a_body()
+    {
+
+        $this->withExceptionHandling()
+            ->signIn();
+
+        $thread = create('App\Thread');
+
+        //reply
+        $reply = make('App\Reply', ['body' => null]);
+
+
+        $this->post($thread->path().'/replies', $reply->toArray())
+                ->assertSessionHasErrors('body');
 
     }
 }
