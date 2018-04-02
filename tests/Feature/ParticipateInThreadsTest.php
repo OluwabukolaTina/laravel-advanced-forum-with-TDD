@@ -55,18 +55,14 @@ class ParticipateInThreadsTest extends TestCase
 
     function test_a_reply_requires_a_body()
     {
-
-        $this->withExceptionHandling()
-            ->signIn();
+        $this->withExceptionHandling()->signIn();
 
         $thread = create('App\Thread');
 
-        //reply
         $reply = make('App\Reply', ['body' => null]);
 
-
-        $this->post($thread->path().'/replies', $reply->toArray())
-                ->assertSessionHasErrors('body');
+        $this->post($thread->path() . '/replies', $reply->toArray())
+             ->assertSessionHasErrors('body');
 
     }
 }
