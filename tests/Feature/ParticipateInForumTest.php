@@ -10,7 +10,6 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 class ParticipateInForumTest extends TestCase
 {
 
-	use RefreshDatabase;
     /**
      * A basic test example.
      *
@@ -34,13 +33,15 @@ class ParticipateInForumTest extends TestCase
 
     {
     
-    	$this->be($user = factory('App\User')->create());
+    	// $this->be($user = factory('App\User')->create());
+        $this->signIn();
 
     	//add a thread
-    	$thread = factory('App\Thread')->create();
+    	$thread = create('App\Thread');
 
     	//reply
-    	$reply = factory('App\Reply')->make();
+    	// $reply = factory('App\Reply')->make();
+        $reply = make('App\Reply');
 
     	$this->post($thread->path().'/replies', $reply->toArray());
 

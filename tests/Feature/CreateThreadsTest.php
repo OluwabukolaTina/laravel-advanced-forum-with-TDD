@@ -22,20 +22,28 @@ class CreateThreadsTest extends TestCase
     {
         $this->expectException('Illuminate\Auth\AuthenticationException');
     	//hit end point to create new thread
-    	$thread = factory('App\Thread')->make();
+    	$thread = make('App\Thread');
 
     	$this->post('/threads', $thread->toArray());
     	
+    }
+
+    function test_guest_can_not_see_create_threads_page()
+    {
+
+        $this->withExceptionHandling()
+            ->get('/threads/create')
+            ->assertRedirect('/login');
     }
 
     function test_an_unatheticated_user_can_create_new_forum_threads()
     {
 
     	//signed in user
-    	$this->actingAs(factory('App\User')->create());
+    	$this->actingAs(create('App\User'));
 
     	//hit end point to create new thread
-    	$thread = factory('App\Thread')->make();
+    	$thread = make('App\Thread');
 
     	$this->post('/threads', $thread->toArray());
 
