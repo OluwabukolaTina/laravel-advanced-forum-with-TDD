@@ -26,7 +26,7 @@
                             
                                     <option value="">Choose One...</option>
 
-                                    @foreach (App\Channel::all() as $channel)
+                                    @foreach ($channels as $channel)
                             
                                         <option value="{{ $channel->id }}" {{ old('channel_id') == $channel->id ? 'selected' : '' }}>
                             
