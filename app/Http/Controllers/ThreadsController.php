@@ -52,7 +52,16 @@ class ThreadsController extends Controller
     public function show($channelId, Thread $thread)
     {
 
-    	return view('threads.show', compact('thread'));
+        // return $thread;
+
+    	return view('threads.show', [
+
+            'thread' => $thread,
+
+            'replies' => $thread->replies()->paginate(4)
+
+        ]);
+    
     }
 
     public function store(Request $request)
@@ -93,35 +102,4 @@ class ThreadsController extends Controller
         return $threads->get();
     }
 
-    // protected function getThreads(Channel $channel)
-    // {
-
-    //     if($channel->exists)
-        
-    //     {
-            
-    //     $threads = $channel->threads()->latest(); 
-                   
-    //     } 
-
-    //     else 
-
-    //     {
-
-    //     $threads = Thread::latest();
-
-    //     }
-
-    //     //if for by
-    //     // if ($username = request('by')) {
-    //     //     $user = \App\User::where('name', $username)->firstOrFail();
-
-    //     //     $threads->where('user_id', $user->id);
-    //     // }
-
-    //     $threads = $threads->get();
-
-    //     return $threads;
-
-    // }
 }

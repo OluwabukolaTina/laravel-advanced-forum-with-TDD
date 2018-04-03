@@ -6,7 +6,7 @@
 		
 		<div class="row">
 			
-			<div class="col-md-8 col-md-offset-2">
+			<div class="col-md-8">
 				
 				<div class="panel panel-default">
 					
@@ -20,51 +20,35 @@
 
 					<div class="panel-body">
 						{{ $thread->body }}
+				
 					</div>
+				
 				</div>
-			</div>
-		</div>
 
-		<div class="row">
-			
-			<div class="col-md-8 col-md-offset-2">
-		
-				@foreach ($thread->replies as $reply )
+ @foreach ($replies as $reply)
+                    @include ('threads.reply')
+                @endforeach
 
-					@include ('threads.reply')
 
-				@endforeach
-
-			</div>
-
-		</div>
+				{{ $replies->links() }}
 
 		@auth
 
-		<div class="row">
-			
-			<div class="col-md-8 col-md-offset-2">
-		
 				<form method="post" action="{{ $thread->path() . '/replies' }}">
 
 					{{ csrf_field() }}
 					
 					<!-- <label for="body"> Body</label> -->
+
+					<div class="form-group">
 					<textarea name="body" class="form-control" id="body" placeholder=" Hey,  {{ Auth::user()->name }} , got something to say??" rows="5"></textarea>
 
-					<br>
-
-    			<div class="form-group">
+					</div>
     				
     				<button type="submit" class="btn btn-default">Submit</button>
 
-    			</div>
     			
 				</form>
-
-			</div>
-		
-		</div>
 
 		@else
 
@@ -72,6 +56,28 @@
 
 		@endauth
 
-	</div>
+</div>
+
+<div class="col-md-4">
+
+	<div class="panel panel-default">
+					
+					
+					<div class="panel-body">
+						
+						<p>
+							
+							This thread was published {{ $thread->created_at->diffForHumans() }} by <a href="#"> {{ $thread->creator->name }} </a> and has {{ $thread->replies_count }} {{ str_plural('comment',$thread->replies_count )}}.
+						</p>
+					</div>
+				
+				</div>
+	
+</div>
+
+</div>
+
+</div>
+
 
 @endsection
