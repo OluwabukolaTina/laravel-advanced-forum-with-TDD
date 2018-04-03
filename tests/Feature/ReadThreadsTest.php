@@ -56,12 +56,19 @@ class ReadThreadsTest extends TestCase
     function test_a_user_filter_thread_according_to_tag()
     
     {
-        $channel = create('App\Channel');
+        // $channel = create('App\Channel');
 
-        $threadInChannel = create('App\Thread',['channel_id' => $channel->id]);
+        // $threadInChannel = create('App\Thread',['channel_id' => $channel->id]);
 
+        // $threadNotInChannel = create('App\Thread');
+
+        // $this->get('/threads/' . $channel->slug)
+        //     ->assertSee($threadInChannel->title)
+        //     ->assertDontSee($threadNotInChannel->title);
+
+            $channel = create('App\Channel');
+        $threadInChannel = create('App\Thread', ['channel_id' => $channel->id]);
         $threadNotInChannel = create('App\Thread');
-
         $this->get('/threads/' . $channel->slug)
             ->assertSee($threadInChannel->title)
             ->assertDontSee($threadNotInChannel->title);
