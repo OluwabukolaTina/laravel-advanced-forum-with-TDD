@@ -34,7 +34,7 @@ class Thread extends Model
     {
 
     	// return $this->hasMany(Reply::class)->withCount('favorites');
-        return $this->hasMany(Reply::class)->;
+        return $this->hasMany(Reply::class);
     
     }
 
