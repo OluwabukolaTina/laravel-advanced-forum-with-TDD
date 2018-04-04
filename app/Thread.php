@@ -9,6 +9,8 @@ class Thread extends Model
     //
     protected $guarded = [];
 
+    protected $with = ['creator', 'channel'];
+
     protected static function boot()
     {
 
@@ -33,7 +35,7 @@ class Thread extends Model
     public function replies ()
     {
 
-    	// return $this->hasMany(Reply::class)->withCount('favorites');
+        //eager loading at work
         return $this->hasMany(Reply::class);
     
     }

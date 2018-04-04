@@ -90,6 +90,7 @@ class ThreadsController extends Controller
         // dd(request()->all());
     }
 
+    //here we fetch the threads
     protected function getThreads(Channel $channel, ThreadFilters $filters)
     {
         

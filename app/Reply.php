@@ -6,9 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Reply extends Model
 {
+
+    use Favoritable;
     //
 
     protected $guarded = [];
+
+    protected $with = ['owner', 'favorites'];
     
     public function owner()
     {
@@ -17,32 +21,41 @@ class Reply extends Model
 
     }
 
-    public function favorites()
-    {
+    // public function favorites()
+    // {
 
-    	//polymorphic one to many
+    // 	//polymorphic one to many
 
-    	return $this->morphMany(Favorite::class, 'favorited');
+    // 	return $this->morphMany(Favorite::class, 'favorited');
 
-    }
+    // }
 
-    public function favorite()
-    {
+    // public function favorite()
+    // {
      
-        $attributes = ['user_id' => auth()->id()];
+    //     $attributes = ['user_id' => auth()->id()];
      
-        if (! $this->favorites()->where($attributes)->exists()) {
+    //     if (! $this->favorites()->where($attributes)->exists()) {
      
-            return $this->favorites()->create($attributes);
+    //         return $this->favorites()->create($attributes);
      
-        }
-    }
+    //     }
+    // }
 
-    public function isFavorited()
-    {
+    // public function isFavorited()
+    // {
 
-        return $this->favorites()->where('user_id', auth()->id())->exists();
+    //     //fav r/ship
+
+    //     return !! $this->favorites->where('user_id', auth()->id())->count();
     
-    }
+    // }
+
+    // public function getFavoritesCountAttribute()
+    // {
+
+    //     return $this->favorites->count();
+
+    // }
 
 }
