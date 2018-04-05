@@ -28,6 +28,20 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function getRouteKeyName()
+    {
+
+        return 'name';
+    
+    }
+
+    public function threads()
+    {
+
+        return $this->hasMany(Thread::class)->latest();
+    
+    }
+
     public function is_admin ()
     {
 
@@ -49,10 +63,4 @@ class User extends Authenticatable
 
     }
 
-    // public function likes()
-    // {
-
-    //     return $this->hasMany(Like::class);
-
-    // }
 }

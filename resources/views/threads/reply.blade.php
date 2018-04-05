@@ -5,13 +5,13 @@
 						<div class="level">
 					
 					<h5 class="flex">
-					<a href="#" style="text-decoration: none;">{{ $reply->owner->name}}</a>
+					
+					<a href="{{ route('profile', $reply->owner ) }}" style="text-decoration: none;">{{ $reply->owner->name}}</a>
 					 said	{{ $reply->created_at->diffForHumans() }}
 					</h5>
 
 					 <div>
 
-					 	{{-- {{ $reply->favorites()->count() }} --}}
 
 					 	<form action="/replies/{{ $reply->id }}/favorites" method="post">
 

@@ -12,7 +12,7 @@
 					
 					<div class="panel-heading">
 
-						<a href="#">{{ $thread->creator->name }} </a> posted 
+						<a href="{{ route('profile', $thread->creator ) }}">{{ $thread->creator->name }} </a> posted 
 
 						{{ $thread->title }}
 
