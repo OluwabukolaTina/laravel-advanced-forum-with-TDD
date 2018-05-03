@@ -2,13 +2,13 @@
 
 $url = parse_url(getenv("DATABASE_URL"));
 
-$host = $url["host"]??null;
+$host = $url["host"];
 
-$username = $url["user"]??null;
+$username = $url["user"];
 
-$password = $url["pass"]??null;
+$password = $url["pass"];
 
-$password = substr($url["path"], 1)??null;
+$password = substr($url["path"], 1);
 
 return array(
 
