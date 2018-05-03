@@ -86,7 +86,7 @@ return array(
                         'schema'   => 'public',
                 ),
 
-                'pgsql_production' => (
+                'pgsql_production' => array(
                         'driver' => 'pgsql',
                         'host' => $host,
                         'database' => $database,
