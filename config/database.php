@@ -58,7 +58,7 @@ return array(
                         'host'      => 'localhost',
                         'database'  => 'forum',
                         'username'  => 'root',
-                        'password'  => '',
+                        'password'  => 'tina',
                         'charset'   => 'utf8',
                         'collation' => 'utf8_unicode_ci',
                         'prefix'    => '',
