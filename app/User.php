@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'avatar', 'email', 'password',
+        'name', 'avatar', 'email', 'password', 'social_id', 'social_token',
     ];
 
     /**
@@ -32,24 +32,24 @@ class User extends Authenticatable
     {
 
         return 'name';
-    
+
     }
 
     public function threads()
     {
 
         return $this->hasMany(Thread::class)->latest();
-    
+
     }
 
     public function is_admin ()
     {
 
-        if($this->admin) 
+        if($this->admin)
         {
 
             return true;
-        
+
         }
 
         return false;
@@ -60,6 +60,36 @@ class User extends Authenticatable
     {
 
         return $this->hasMany('App\Discussion');
+
+    }
+
+    public static function createOrFindSocialLogin($socialUser)
+    {
+
+      $user = User::where('social_id', $socialUser->id)->first();
+
+      if($user) {
+
+        return $user;
+
+      }
+
+      //no user found
+      return User::create([
+
+        'name' => $socialUser->name,
+
+        'avatar' => $socialUser->avatar,
+
+        'email' => $socialUser->email,
+
+        'password' => bcrypt(str_random(16)),
+
+        'social_id' => $socialUser->id,
+
+        'social_token' => $socialUser->token
+
+      ]);
 
     }
 
