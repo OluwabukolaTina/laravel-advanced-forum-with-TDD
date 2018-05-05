@@ -2,6 +2,10 @@
 
 Auth::routes();
 
+Route::get('/', function () {
+    return redirect('/threads');
+});
+
 Route::name('auth.github')->get('auth/github','SocialAuthController@redirectToGithub');
 
 Route::name('auth.github.callback')->get('auth/github/callback', 'SocialAuthController@handleGithubCallback');
