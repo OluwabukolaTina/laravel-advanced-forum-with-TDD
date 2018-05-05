@@ -38,7 +38,8 @@ return [
     'github' => [
     'client_id' => env('GITHUB_CLIENT_ID'),         // Your GitHub Client ID
     'client_secret' => env('GITHUB_CLIENT_SECRET'), // Your GitHub Client Secret
-    'redirect' => 'http://laravel-advanced-forum-with-tdd.test/auth/github/callback',
+    // 'redirect' => 'http://laravel-advanced-forum-with-tdd.test/auth/github/callback',
+    'redirect' => 'http://desolate-headland-94513.herokuapp.com/auth/github/callback',
 
     ],
 
