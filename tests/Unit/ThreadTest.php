@@ -35,8 +35,11 @@ class ThreadTest extends TestCase
         $thread = create('App\Thread');
         
         $this->assertEquals(
+          
             "/threads/{$thread->channel->slug}/{$thread->id}", $thread->path()
+        
         );
+    
     }
 
     function test_has_replies()

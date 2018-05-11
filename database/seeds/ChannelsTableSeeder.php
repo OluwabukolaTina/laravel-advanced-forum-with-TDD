@@ -48,7 +48,7 @@ class ChannelsTableSeeder extends Seeder
 
         $c1 = [
 
-            'title' => $t1,
+            'name' => $t1,
 
             'slug' => str_slug($t1)
 
@@ -56,7 +56,7 @@ class ChannelsTableSeeder extends Seeder
 
         $c2 = [
 
-            'title' => $t2,
+            'name' => $t2,
 
             'slug' => str_slug($t2)
 
@@ -64,7 +64,7 @@ class ChannelsTableSeeder extends Seeder
 
         $c3 = [
 
-            'title' => $t3,
+            'name' => $t3,
 
             'slug' => str_slug($t3)
 
@@ -72,7 +72,7 @@ class ChannelsTableSeeder extends Seeder
 
         $c4 = [
 
-            'title' => $t4,
+            'name' => $t4,
 
             'slug' => str_slug($t4)
 
@@ -80,7 +80,7 @@ class ChannelsTableSeeder extends Seeder
 
         $c5 = [
 
-            'title' => $t5,
+            'name' => $t5,
 
             'slug' => str_slug($t5)
 
@@ -88,7 +88,7 @@ class ChannelsTableSeeder extends Seeder
 
         $c6 = [
 
-            'title' => $t6,
+            'name' => $t6,
 
             'slug' => str_slug($t6)
 
@@ -96,7 +96,7 @@ class ChannelsTableSeeder extends Seeder
 
         $c7 = [
 
-            'title' => $t7,
+            'name' => $t7,
 
             'slug' => str_slug($t7)
 
@@ -104,7 +104,7 @@ class ChannelsTableSeeder extends Seeder
 
         $c8 = [
 
-            'title' => $t8,
+            'name' => $t8,
 
             'slug' => str_slug($t8)
 
@@ -129,4 +129,5 @@ class ChannelsTableSeeder extends Seeder
         Channel::create($c8);
         
     }
+
 }

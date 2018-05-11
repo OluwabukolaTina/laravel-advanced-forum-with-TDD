@@ -29,32 +29,33 @@ $factory->define(App\Thread::class, function (Faker $faker) {
     		return factory('App\User')->create()->id;
     	
     	},
+       
         'channel_id' => function() {
 
             return factory('App\Channel')->create()->id;
         },
+       
         'title' => $faker->sentence,
+       
         'body' => $faker->paragraph
+    
     ];
+
 });
 
+//channel consists of
 $factory->define(App\Channel::class, function (Faker $faker) {
 
     $name = $faker->word;
 
     return [
-        // 'user_id' => function () {
-
-        //     return factory('App\User')->create()->id;
-        
-        // },
-        // 'channel_id' => function() {
-
-        //     return factory('App\Channel')->create()->id;
-        // },
+       
         'name' => $name,
+       
         'slug' => $name
+    
     ];
+
 });
 
 $factory->define(App\Reply::class, function (Faker $faker) {

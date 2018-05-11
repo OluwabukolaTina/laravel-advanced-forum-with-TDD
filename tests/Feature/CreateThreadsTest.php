@@ -46,8 +46,10 @@ class CreateThreadsTest extends TestCase
 
     	//thread page
     	$this->get($response->headers->get('location'))
-    			//see the thread
+    			
+                //see the thread
  				 ->assertSee($thread->title)
+
     			->assertSee($thread->body);
 
     }
@@ -56,6 +58,7 @@ class CreateThreadsTest extends TestCase
     {
 
         $this->publishThread(['title' => null])
+               
                 ->assertSessionHasErrors('title');
     
     }
@@ -64,6 +67,7 @@ class CreateThreadsTest extends TestCase
     {
 
         $this->publishThread(['body' => null])
+               
                 ->assertSessionHasErrors('body');
     
     }
@@ -74,9 +78,11 @@ class CreateThreadsTest extends TestCase
         factory('App\Channel', 2)->create();
 
         $this->publishThread(['channel_id' => null])
+               
                 ->assertSessionHasErrors('channel_id');
 
         $this->publishThread(['channel_id' => 999])
+               
                 ->assertSessionHasErrors('channel_id');
     
     }
